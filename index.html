@@ -54,8 +54,8 @@
     .illo .steam { animation: steam 3.2s ease-in-out infinite; transform-origin: center bottom; }
     .illo .steam:nth-child(2) { animation-delay: 0.8s; }
     .illo .steam:nth-child(3) { animation-delay: 1.6s; }
-    .illo .ear { animation: flick 2.8s ease-in-out infinite; transform-origin: 178px 92px; }
-    .illo .ear-r { transform-origin: 262px 92px; animation-direction: reverse; animation-delay: 0.4s; }
+    .illo .ear { animation: flick 2.8s ease-in-out infinite; transform-origin: 196px 88px; }
+    .illo .ear-r { transform-origin: 244px 88px; animation-direction: reverse; animation-delay: 0.4s; }
     @keyframes steam {
       0%, 100% { opacity: 0.25; transform: translateY(0) scaleY(1); }
       50% { opacity: 0.8; transform: translateY(-8px) scaleY(1.1); }
@@ -95,6 +95,15 @@
   <main>
     <div class="wrap hero">
       <svg class="illo" viewBox="0 0 440 320" role="img" aria-label="A dog peeking out of a steaming coffee cup">
+        <!-- glow behind the logo -->
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="48%" r="50%">
+            <stop offset="0%" stop-color="#e8a657" stop-opacity="0.3"/>
+            <stop offset="55%" stop-color="#e8a657" stop-opacity="0.08"/>
+            <stop offset="100%" stop-color="#e8a657" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="220" cy="150" rx="210" ry="160" fill="url(#glow)"/>
         <!-- table shadow -->
         <ellipse cx="220" cy="296" rx="170" ry="12" fill="rgba(232,166,87,0.10)"/>
         <!-- steam -->
@@ -108,28 +117,44 @@
         <ellipse cx="220" cy="158" rx="88" ry="14" fill="#5a3522"/>
         <!-- dog -->
         <g>
-          <!-- ears (floppy) -->
-          <path class="ear" d="M178 92c-20-26-42-20-44 6 0 22 14 40 32 42z" fill="#8f4a22"/>
-          <path class="ear ear-r" d="M262 92c20-26 42-20 44 6 0 22-14 40-32 42z" fill="#8f4a22"/>
+          <!-- ears (big, rounded, set out to the sides) -->
+          <g class="ear">
+            <path d="M216 74 C204 52 182 14 160 8 C146 4 138 18 142 34 C148 58 164 82 180 96z" fill="#1c1a1a"/>
+            <path d="M206 78 C196 60 178 30 162 22 C154 20 152 30 156 40 C162 56 174 74 186 88z" fill="#c98a5a"/>
+          </g>
+          <g class="ear ear-r">
+            <path d="M224 74 C236 52 258 14 280 8 C294 4 302 18 298 34 C292 58 276 82 260 96z" fill="#1c1a1a"/>
+            <path d="M234 78 C244 60 262 30 278 22 C286 20 288 30 284 40 C278 56 266 74 254 88z" fill="#c98a5a"/>
+          </g>
           <!-- head -->
-          <circle cx="220" cy="104" r="48" fill="#c9733b"/>
-          <!-- muzzle -->
-          <ellipse cx="220" cy="126" rx="26" ry="19" fill="#e8a657"/>
-          <ellipse cx="220" cy="118" rx="9" ry="7" fill="#1a120d"/>
-          <path d="M210 132c4 6 16 6 20 0" fill="none" stroke="#1a120d" stroke-width="3" stroke-linecap="round"/>
-          <!-- tongue -->
-          <path d="M214 136h12v6a6 6 0 0 1-12 0z" fill="#e26b6b"/>
+          <ellipse cx="220" cy="106" rx="50" ry="46" fill="#1c1a1a"/>
+          <!-- tan cheeks -->
+          <path d="M174 120c6 20 22 32 46 32s40-12 46-32c-10 8-28 14-46 14s-36-6-46-14z" fill="#c98a5a"/>
+          <!-- white blaze and muzzle -->
+          <path d="M213 74c-2 20-5 36-11 50 2 20 10 30 18 30s16-10 18-30c-6-14-9-30-11-50z" fill="#f4ebe1"/>
+          <ellipse cx="220" cy="130" rx="28" ry="18" fill="#f4ebe1"/>
+          <!-- tan eyebrows -->
+          <ellipse cx="199" cy="92" rx="9" ry="5" fill="#c98a5a"/>
+          <ellipse cx="241" cy="92" rx="9" ry="5" fill="#c98a5a"/>
           <!-- eyes -->
-          <circle cx="202" cy="98" r="5" fill="#1a120d"/>
-          <circle cx="238" cy="98" r="5" fill="#1a120d"/>
-          <circle cx="204" cy="96" r="1.6" fill="#f4ebe1"/>
-          <circle cx="240" cy="96" r="1.6" fill="#f4ebe1"/>
-          <!-- neck/shoulders down into the cup -->
-          <path d="M184 140h72v40h-72z" fill="#c9733b"/>
+          <circle cx="200" cy="104" r="8" fill="#7a4a22"/>
+          <circle cx="240" cy="104" r="8" fill="#7a4a22"/>
+          <circle cx="200" cy="105" r="4.5" fill="#1a120d"/>
+          <circle cx="240" cy="105" r="4.5" fill="#1a120d"/>
+          <circle cx="203" cy="101" r="2.2" fill="#f4ebe1"/>
+          <circle cx="243" cy="101" r="2.2" fill="#f4ebe1"/>
+          <!-- nose and mouth -->
+          <ellipse cx="220" cy="124" rx="9" ry="7" fill="#1c1a1a"/>
+          <path d="M210 136c4 6 16 6 20 0" fill="none" stroke="#1c1a1a" stroke-width="3" stroke-linecap="round"/>
+          <!-- tongue -->
+          <path d="M214 140h12v6a6 6 0 0 1-12 0z" fill="#e26b6b"/>
+          <!-- neck/shoulders down into the cup, white chest -->
+          <path d="M184 142h72v40h-72z" fill="#1c1a1a"/>
+          <path d="M204 142h32v40h-32z" fill="#f4ebe1"/>
           <!-- paws on the rim -->
-          <rect x="166" y="150" width="30" height="20" rx="10" fill="#e8a657"/>
-          <rect x="244" y="150" width="30" height="20" rx="10" fill="#e8a657"/>
-          <path d="M176 160v6M186 160v6M254 160v6M264 160v6" stroke="#c9733b" stroke-width="2" stroke-linecap="round"/>
+          <rect x="166" y="150" width="30" height="20" rx="10" fill="#f4ebe1"/>
+          <rect x="244" y="150" width="30" height="20" rx="10" fill="#f4ebe1"/>
+          <path d="M176 160v6M186 160v6M254 160v6M264 160v6" stroke="#b89f8a" stroke-width="2" stroke-linecap="round"/>
         </g>
         <!-- cup front -->
         <path d="M120 162h200v70a56 56 0 0 1-56 56h-88a56 56 0 0 1-56-56z" fill="#e8a657"/>
